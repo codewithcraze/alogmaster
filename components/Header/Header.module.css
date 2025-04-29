@@ -1,3 +1,176 @@
-.header{
-    height: 80px;
+/* Header.module.css */
+.header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 0px 10% 0px 10%;
+    border-bottom: 1px solid rgba(50, 50, 93, 0.25);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 70px
+
+}
+
+.svg svg{
+    height: 30px;
+    width: 30px;
+    color: rgb(37 99 235);
+    font-size: 30px;
+}
+
+.nav{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.nav li{
+    padding: 10px;
+}
+.nav li a{
+    text-decoration: none;
+    color: black;
+}
+
+.signin button{
+    padding: 8px;
+    border: none;
+    background: dodgerblue;
+    color: white;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 7px 15px 7px 15px;
+    border-radius: 5px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex h3{
+    margin-left: 10px;
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.muted{
+    text-decoration: none;
+    color: black;
+}
+
+
+.button-hover {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+.button-hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background: dodgerblue;
+    transition: width 0.3s ease-in-out;
+}
+
+.button-hover:hover::after {
+    width: 100%;
+}
+
+.active {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: dodgerblue;
+}
+
+.hamburger{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav{
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+
+}
+
+
+.navoshort {
+    display: flex;
+    position: absolute;
+    top: 9px;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    animation: slideInRightJhataka 0.5s ease-out forwards;
+    z-index: 1000;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+    .hamburgeroshort{
+
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        z-index: 1200;
+        .bar:first-child {
+            transform: rotate(45deg) translateY(10px); /* Rotate first bar */
+        }
+        .bar:nth-child(2) {
+            opacity: 0; /* Hide the middle bar */
+        }
+        .bar:last-child {
+            transform: rotate(-45deg) translateY(-9px); /* Rotate last bar */
+        }
+    }
+
+.bar{
+    width: 25px;
+    height: 3px;
+    margin: 2px;
+    background-color: #333;
+}
+
+@keyframes slideInRightJhataka {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

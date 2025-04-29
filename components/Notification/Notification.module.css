@@ -1,0 +1,13 @@
+.notification{
+    border-bottom: 1px solid lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: dodgerblue;
+    color: white;
+    font-width: 700;
+}
+
+.full{
+    height: 100% !important;
+}

@@ -8,7 +8,7 @@ export default function Page(){
     return(
         <Suspense fallback={<Loading />}>
             <Notification />
-            <Header currentPath="/problems" />
+            <Header currentPath="/discuss" />
         </Suspense>
     )
 }
