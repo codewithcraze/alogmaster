@@ -111,4 +111,16 @@ input:focus{
     }
 }
 
+.dflex{
+    display: flex;
+    max-width: 1400px;
+    gap: 10px;
+    margin: 0 auto;
+}
 
+@media screen and (max-width: 768px) {
+    .dflex {
+        margin: 14px;
+        flex-direction: column;
+    }
+}

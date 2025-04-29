@@ -1,0 +1,83 @@
+.card{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 20px;
+}
+
+.iconContainer {
+
+    background-color: #DBEAFE;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
+    svg{
+        font-size: 2rem;
+        height: 40px;
+    }
+}
+
+.cardFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.problemSvg{
+    font-size: 1rem;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.icon{
+    color: dodgerblue;
+}
+
+.problemCount{
+    background-color: #DCFCE7;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    height: 35px;
+    color: #16A34A;
+    justify-content: center;
+}
+
+.easy{
+    background-color: #DCFCE7;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0px 5px 0px 5px;
+    height: 35px;
+    color: #16A34A;
+    margin: 4px;
+}
+
+.medium{
+    background-color: #FEF9C3;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0px 5px 0px 5px;
+    height: 35px;
+    color: #C38C25;
+    margin: 4px;
+}
+
+.hard{
+    background-color: #FEE2E2;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0px 5px 0px 5px;
+    height: 35px;
+    color: #E11D48;
+    margin: 4px;
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+}
