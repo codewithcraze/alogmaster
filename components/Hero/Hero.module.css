@@ -52,12 +52,15 @@ input:focus{
     list-style-type: none;
     text-align: left;
     padding: 5px;
+    font-size: 1.1rem;
     li{
         border-bottom: 1px solid grey;
-        padding: 3px;
+        padding: 5px 10px 5px 10px;
     }
     li:hover{
         transform: scale(1.01);
+        background-color: #f7fcff;
+        box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
     }
     li a{
         text-decoration: none;
@@ -111,12 +114,20 @@ input:focus{
     }
 }
 
-.dflex{
+.dflex {
     display: flex;
     max-width: 1400px;
     gap: 10px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
+
+.dflex > div {
+    flex: 1 1 calc(33.33% - 10px);
+    box-sizing: border-box;
+}
+
 
 @media screen and (max-width: 768px) {
     .dflex {
