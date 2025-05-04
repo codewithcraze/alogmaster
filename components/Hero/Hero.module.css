@@ -1,4 +1,5 @@
 .hero{
+
     padding: 20px;
     margin-top: 50px;
     display: flex;
@@ -58,8 +59,8 @@ input:focus{
         padding: 5px 10px 5px 10px;
     }
     li:hover{
-        transform: scale(1.01);
-        background-color: #f7fcff;
+        transform: scale(1.02);
+        background-color: #eef9ff;
         box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
     }
     li a{
@@ -71,19 +72,27 @@ input:focus{
 
 
 .listContainer{
-    width: 38% !important;
+    position: absolute;
+    top: calc(2rem + 50px + 5px); /* margin-top + input height + small gap */
+    width: 72% !important;
     margin-top: 4px !important;
     padding-top: 0px !important;
     background-color: #fdfdfd;
     border-radius: 10px;
-    height: 400px;
+    height: 300px;
     overflow-y: scroll;
+    z-index: 5;
+
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    ul{
+        font-size: 1.2rem;
+        font-family: inherit;
+    }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1400px) {
     .listContainer{
-        width: 51% !important;
+        width: 48% !important;
     }
 }
 
@@ -117,11 +126,44 @@ input:focus{
 .dflex {
     display: flex;
     max-width: 1400px;
-    gap: 10px;
+    gap: 15px;
     margin: 0 auto;
     flex-wrap: wrap;
     margin-bottom: 2rem;
 }
+
+.lflex{
+    display: flex;
+    max-width: 1400px;
+    gap: 15px;
+
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+    cursor: pointer;
+
+    a{
+        text-decoration: none;
+        color: black;
+        background: white;
+        padding: 10px 20px 10px 20px;
+        flex: 1 1 calc(33.333% - 10px);
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        margin: 10px;
+        a  {
+            flex:1 1 calc(33.333% - 10px);
+        }
+    }
+}
+
 
 .dflex > div {
     flex: 1 1 calc(33.33% - 10px);
@@ -134,4 +176,10 @@ input:focus{
         margin: 14px;
         flex-direction: column;
     }
+}
+.searchWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

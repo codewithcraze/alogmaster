@@ -12,6 +12,26 @@
 
 }
 
+
+.stickyHeader {
+    position: fixed;
+    top: -100px; /* start hidden */
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownFade 0.4s forwards;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDownFade {
+    to {
+        top: 0;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .svg svg{
     height: 30px;
     width: 30px;

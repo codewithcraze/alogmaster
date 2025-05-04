@@ -1,0 +1,130 @@
+.plan{
+    margin-top: 50px;
+}
+
+.flex{
+    display: flex;
+    gap: 2px;
+
+    a{
+        text-decoration: none;
+        color: #0886fa;
+        font-size: 20px;
+    }
+    svg{
+        height: 30px;
+        width: 30px;
+        color: #0886fa;
+    }
+}
+.dflex {
+    display: flex;
+    max-width: 1400px;
+    gap: 15px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    div{
+        font-size: 1.6rem;
+        font-weight: 800;
+    }
+}
+
+.planCourse{
+    flex:1 1 calc(33.333% - 10px);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    margin-bottom: 50px;
+    cursor: pointer;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+    h3{
+        font-size: 1.6rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+
+    div{
+        display: flex;
+        justify-content: start;
+        align-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+    div svg{
+        height: 30px;
+        width: 30px;
+    }
+
+}
+
+.planCourse:hover{
+    transform: scale(1.01);
+}
+
+.flexo{
+    display: flex;
+    max-width: 1400px;
+    gap: 10px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.plan1{
+    background-image: linear-gradient( 105.9deg,  rgba(0,122,184,1) 24.4%, rgba(46,0,184,0.88) 80.5% );
+}
+
+.plan2{
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.plan3{
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.font1{
+    color: #2E00B8E0;
+}
+.font2{
+    color: #56ab2f;
+}
+.font3{
+    color: #fc4a1a ;
+}
+
+
+.start{
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 1rem;
+    font-weight: bold;
+    justify-content: center !important;
+    a{
+        text-decoration: none;
+
+    }
+}
+
+
+@media screen and (max-width: 900px){
+    .flexo{
+        flex-direction: column;
+    }
+    .planCourse{
+        margin-bottom: 10px;
+    }
+    .plan{
+        margin: 10px;
+    }
+}

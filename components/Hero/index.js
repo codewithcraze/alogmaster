@@ -1,8 +1,11 @@
 import styles from './Hero.module.css';
 import SearchQuestion from './search.question';
 import ProblemCard from "@/components/ProblemCard";
+import Link from "next/link";
 
-const Hero = ({title, description}) => {
+
+
+const Hero = async ({title, description}) => {
 
     const problemData = [
         {
@@ -74,7 +77,6 @@ const Hero = ({title, description}) => {
 
     ];
 
-
     return(
         <>
             <div className={styles.hero}>
@@ -85,11 +87,8 @@ const Hero = ({title, description}) => {
                     {description}
                 </div>
                 <SearchQuestion />
-
                 <br />
-
             </div>
-
             <div className={styles.dflex}>
                 {problemData.map((problem, index) => (
                     <ProblemCard
@@ -108,8 +107,61 @@ const Hero = ({title, description}) => {
 
             </div>
 
+            <div>
+                <MiscellaneousSection />
+            </div>
+
         </>
     )
 }
+
+function MiscellaneousSection(){
+
+    const getQuestionsCatalog = [
+        {
+            topic: "Sorting Searching",
+            count: 67,
+            slug: "sorting",
+        },  {
+            topic: "Greedy Algorithms",
+            count: 77,
+            slug: "greedy-algorithms",
+        },  {
+            topic: "Backtracking",
+            count: 62,
+            slug: "backtracking",
+        } , {
+            topic: "Bit Manipulation",
+            count: 90,
+            slug: "bit-manipulation",
+        },
+        {
+            topic: "Rest",
+            count: 80,
+            slug: "rest",
+        },{
+        topic: "Math & Geometry",
+            count: 99,
+            slug: "math",
+        }
+    ]
+
+    return(
+        <div className={styles.lflex}>
+            {
+                getQuestionsCatalog.map((question, index) => (
+                    <Link href={question.slug}>
+                    <div key={index}>
+                        <h3>{question.topic}</h3>
+                        <p>{question.count} Problems</p>
+                    </div>
+
+                    </Link>
+                ))
+            }
+        </div>
+    )
+}
+
 
 export default Hero;

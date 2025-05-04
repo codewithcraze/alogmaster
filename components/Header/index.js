@@ -12,7 +12,8 @@ const navItems = [
 ];
 
 export default function Header({ currentPath }) {
-    const [menuState, setMenuState] = useState("closed"); // 'open' | 'closing' | 'closed'
+    const [menuState, setMenuState] = useState("closed");
+    const [isSticky, setIsSticky] = useState(false);
 
     useEffect(() => {
         if (menuState === "open") {
@@ -20,23 +21,30 @@ export default function Header({ currentPath }) {
         } else {
             document.body.style.overflow = "auto";
         }
-
         return () => {
             document.body.style.overflow = "auto";
         };
     }, [menuState]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsSticky(window.scrollY > 70);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const toggleMenu = () => {
         if (menuState === "open") {
             setMenuState("closing");
-            setTimeout(() => setMenuState("closed"), 400); // match fadeOut duration
+            setTimeout(() => setMenuState("closed"), 400);
         } else {
             setMenuState("open");
         }
     };
-
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${isSticky ? styles.stickyHeader : ""}`}>
             <div className={styles.flex}>
         <span className={styles.svg}>
           <svg
