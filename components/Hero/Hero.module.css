@@ -157,7 +157,7 @@ input:focus{
 
     @media (max-width: 768px) {
         flex-wrap: wrap;
-        margin: 10px;
+        margin: 14px;
         a  {
             flex:1 1 calc(33.333% - 10px);
         }

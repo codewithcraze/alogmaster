@@ -2,81 +2,34 @@ import styles from './Hero.module.css';
 import SearchQuestion from './search.question';
 import ProblemCard from "@/components/ProblemCard";
 import Link from "next/link";
+import axios from "axios";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
+async function getCardData() {
+    try{
+        const response = await axios.get(`${BASE_URL}/api/dsa/category`);
+        if (response.status !== 200) {
+            throw new Error("Failed to fetch data");
+        }
+        const data = response.data.data;
+        return data;
+    }catch(error){
+        console.error("Error fetching card data:", error);
+        return [];
+    }
+}
 
 
 const Hero = async ({title, description}) => {
 
-    const problemData = [
-        {
-            title: "Array",
-            description: "Array Questions - 120 problems for mastering arrays in programming. Includes easy, medium, and hard levels.",
-            numberOfProblem: "120",
-            easy: "24",
-            medium: "52",
-            hard: "23",
-            category: "Array",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["Array", "Programming", "Data Structures", "Easy Problems", "Medium Problems", "Hard Problems"],
-        },
-        {
-            title: "String",
-            description: "String Questions - 100 problems to practice string manipulation and algorithms in programming.",
-            numberOfProblem: "100",
-            easy: "20",
-            medium: "62",
-            hard: "18",
-            category: "String",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["String", "Programming", "Data Structures", "String Manipulation", "Algorithms"],
-        },
-        {
-            title: "Linked List",
-            description: "Linked List Questions - 90 problems for understanding linked list operations and algorithms.",
-            numberOfProblem: "90",
-            easy: "30",
-            medium: "45",
-            hard: "15",
-            category: "Linked List",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["Linked List", "Programming", "Data Structures", "Linked List Operations"],
-        },
-        {
-            title: "Rest",
-            description: "Miscellaneous Questions - 150 problems covering a variety of algorithms and data structures.",
-            numberOfProblem: "150",
-            easy: "50",
-            medium: "60",
-            hard: "40",
-            category: "Rest",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["Algorithms", "Data Structures", "Miscellaneous Problems"],
-        },
-        {
-            title: "Graph",
-            description: "Graph Questions - 110 problems to master graph theory concepts including traversal, shortest paths, and cycle detection.",
-            numberOfProblem: "110",
-            easy: "25",
-            medium: "55",
-            hard: "30",
-            category: "Graph",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["Graph", "Graph Algorithms", "BFS", "DFS", "Shortest Path", "Cycle Detection", "Data Structures"],
-        },
-        {
-            title: "Tree",
-            description: "Tree Questions - 95 problems to practice binary trees, BSTs, traversals, and recursive patterns.",
-            numberOfProblem: "95",
-            easy: "30",
-            medium: "45",
-            hard: "20",
-            category: "Tree",
-            difficultyLevels: ["Easy", "Medium", "Hard"],
-            tags: ["Tree", "Binary Tree", "BST", "Tree Traversal", "Recursion", "Data Structures"],
-        }
-
-    ];
-
+    const data = await getCardData();
+    const problemData = data.filter((item) => item.type === "dsa");
+    const miscellaneousData = data.filter((item) => item.type === "miscellaneous").map((item) => ({
+        topic: item.name,
+        count: item.easy + item.medium + item.hard,
+        slug: item.slug,
+    }));;
+    
     return(
         <>
             <div className={styles.hero}>
@@ -93,7 +46,8 @@ const Hero = async ({title, description}) => {
                 {problemData.map((problem, index) => (
                     <ProblemCard
                         key={index}
-                        title={problem.title}
+                        title={problem.name}
+                        slug={problem.slug}
                         description={problem.description}
                         numberOfProblem={problem.numberOfProblem}
                         easy={problem.easy}
@@ -108,49 +62,24 @@ const Hero = async ({title, description}) => {
             </div>
 
             <div>
-                <MiscellaneousSection />
+                <MiscellaneousSection miscellaneousData={miscellaneousData} />
             </div>
 
         </>
     )
 }
 
-function MiscellaneousSection(){
+function MiscellaneousSection({miscellaneousData}){
 
     const getQuestionsCatalog = [
-        {
-            topic: "Sorting Searching",
-            count: 67,
-            slug: "sorting",
-        },  {
-            topic: "Greedy Algorithms",
-            count: 77,
-            slug: "greedy-algorithms",
-        },  {
-            topic: "Backtracking",
-            count: 62,
-            slug: "backtracking",
-        } , {
-            topic: "Bit Manipulation",
-            count: 90,
-            slug: "bit-manipulation",
-        },
-        {
-            topic: "Rest",
-            count: 80,
-            slug: "rest",
-        },{
-        topic: "Math & Geometry",
-            count: 99,
-            slug: "math",
-        }
+       ...miscellaneousData
     ]
 
     return(
         <div className={styles.lflex}>
             {
                 getQuestionsCatalog.map((question, index) => (
-                    <Link href={question.slug}>
+                    <Link href={question.slug} key={index}>
                     <div key={index}>
                         <h3>{question.topic}</h3>
                         <p>{question.count} Problems</p>

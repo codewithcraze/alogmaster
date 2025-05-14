@@ -7,7 +7,7 @@ import Notification from "@/components/Notification";
 export default function Page(){
     return(
         <Suspense fallback={<Loading />}>
-            <Notification />
+            <Notification notice={"This is Notice"} />
             <Header currentPath="/interview-prep" />
         </Suspense>
     )

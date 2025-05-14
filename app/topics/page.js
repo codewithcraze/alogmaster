@@ -4,11 +4,11 @@ import Header from "@/components/Header";
 import Notification from "@/components/Notification";
 
 
-export default function Page(){
-    return(
+export default function Page() {
+    return (
         <Suspense fallback={<Loading />}>
             <Notification notice={"This is Notice"} />
-            <Header currentPath="/problems" />
+            <Header currentPath="/discuss" />
         </Suspense>
     )
 }

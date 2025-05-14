@@ -1,5 +1,7 @@
-export default function Loading(){
-    return(<div>
-        Loading UI
-    </div>)
+export default function Loading() {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
+       Loading Content
+    </div>
+  );
 }

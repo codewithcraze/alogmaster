@@ -1,11 +1,14 @@
-
+"use client";
 import styles from './Notification.module.css';
 
-
-const Notification = ()  => {
-    return(<div className={styles.notification}>
-        <marquee className={styles.full}><span>Note:</span> We are offering 10% percent discount on every share.</marquee>
-    </div>)
-}
+const Notification = ({notice}) => {
+  return (
+    <div className={styles.notification}>
+      <div className={styles.scrolling}>
+        <span>Note:</span> {notice}
+      </div>
+    </div>
+  );
+};
 
 export default Notification;

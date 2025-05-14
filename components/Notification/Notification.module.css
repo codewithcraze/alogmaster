@@ -1,13 +1,22 @@
-.notification{
-    border-bottom: 1px solid lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: dodgerblue;
-    color: white;
-    font-width: 700;
+.notification {
+  overflow: hidden;
+  background-color: dodgerblue;
+  padding: 8px 0;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
 }
 
-.full{
-    height: 100% !important;
+.scrolling {
+  display: inline-block;
+  animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
