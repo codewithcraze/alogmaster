@@ -1,15 +1,15 @@
 import styles from './QuestionListingComponent.module.css';
+import Link from 'next/link';
 
 export default function QuestionListingComponent({data}) {
-  
-  
   
   return (
     <main className={styles.container}>
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
-        <a href="/" className={styles.link}>Home</a>
-        <span className={styles.separator}>›</span>
+        {/* // eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <Link href="/" className={styles.link}>Home</Link>
+        <span className={styles.separator}> › </span>
         <span className={styles.active}>{data?.category?.name}</span>
       </div>
 
