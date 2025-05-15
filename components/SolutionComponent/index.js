@@ -2,10 +2,6 @@ import styles from './SolutionComponent.module.css';
 import Link from 'next/link';
 
 const SolutionComponent = ({ data }) => {
-    debugger;
-
-    console.log(data);
-
     return (
         <div className={styles.container}>
             <div className={styles.breadcrumb}>
@@ -38,6 +34,9 @@ const SolutionComponent = ({ data }) => {
                     <h2>Solution</h2>
                     <div dangerouslySetInnerHTML={{ __html: data?.solution }}></div>
 
+                </div>
+                <div>
+                    <span>Solve this problem on</span> <Link href={data?.link} target="_blank" >Solve</Link>
                 </div>
             </div>
         </div>
