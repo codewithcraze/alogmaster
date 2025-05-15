@@ -79,7 +79,7 @@ function MiscellaneousSection({miscellaneousData}){
         <div className={styles.lflex}>
             {
                 getQuestionsCatalog.map((question, index) => (
-                    <Link href={question.slug} key={index}>
+                    <Link href={"/topics/" + question.slug} key={index}>
                     <div key={index}>
                         <h3>{question.topic}</h3>
                         <p>{question.count} Problems</p>

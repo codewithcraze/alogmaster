@@ -63,7 +63,7 @@ const SearchQuestion = () => {
             <div className={styles.search}>
                 <input
                     type="text"
-                    placeholder="Search For Question"
+                    placeholder="Search Problem, Topics, and Concepts..."
                     value={input}
                     onChange={handleInputChange}
                 />

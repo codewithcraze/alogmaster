@@ -16,6 +16,21 @@
     transform: scale(1.01);
 }
 
+.title{
+    padding: 10px 0 10px
+}
+
+
+.description{
+    padding: 1px 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Adjust number of lines */
+    -webkit-box-orient: vertical;
+}
+
+
 .iconContainer {
     background-color: #DBEAFE;
     width: 50px;
@@ -33,8 +48,10 @@
 
 .cardFooter{
     display: flex;
+    margin-bottom: auto;
     justify-content: space-between;
-        font-family: 'Poppins', sans-serif;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 .problemSvg{

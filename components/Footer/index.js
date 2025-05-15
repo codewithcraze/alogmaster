@@ -16,19 +16,17 @@ export default function Footer() {
                     <div>
                         <h3 className={styles.heading}>Resources</h3>
                         <ul className={styles.linkList}>
-                            <li><Link href="#">Problems</Link></li>
-                            <li><Link href="#">Study Plans</Link></li>
-                            <li><Link href="#">Contest</Link></li>
-                            <li><Link href="#">Interview Prep</Link></li>
+                            <li><Link href="/problems">Problems</Link></li>
+                            <li><Link href="/discuss">Discuss</Link></li>
+                            <li><Link href="/interview-prep">Interview Prep</Link></li>
                         </ul>
                     </div>
                     <div>
                         <h3 className={styles.heading}>Company</h3>
                         <ul className={styles.linkList}>
-                            <li><Link href="#">About Us</Link></li>
-                            <li><Link href="#">Careers</Link></li>
-                            <li><Link href="#">Contact</Link></li>
-                            <li><Link href="#">Blog</Link></li>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
                         </ul>
                     </div>
                     <div>

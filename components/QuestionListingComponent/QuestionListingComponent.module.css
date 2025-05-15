@@ -115,6 +115,7 @@
   border: 1px solid #D1D5DB;
   outline: none;
   width: 100%;
+  height: 45px;
 }
 
 .searchInput:focus {
@@ -132,7 +133,7 @@
 .tableHeader,
 .tableRow {
   display: grid;
-  grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
+  grid-template-columns: 1fr 5fr 3fr 3fr;
   padding: 0.75rem 1.5rem;
 }
 
@@ -150,4 +151,13 @@
 .tableRow:hover {
   background: #EFF6FF;
   cursor: pointer;
+}
+
+
+.noData{
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
 }

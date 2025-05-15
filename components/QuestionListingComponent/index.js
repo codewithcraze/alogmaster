@@ -1,13 +1,16 @@
 import styles from './QuestionListingComponent.module.css';
 
-export default function QuestionListingComponent() {
+export default function QuestionListingComponent({data}) {
+  
+  
+  
   return (
     <main className={styles.container}>
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
-        <a href="#" className={styles.link}>Home</a>
+        <a href="/" className={styles.link}>Home</a>
         <span className={styles.separator}>›</span>
-        <span className={styles.active}>Arrays</span>
+        <span className={styles.active}>{data?.category?.name}</span>
       </div>
 
       {/* Header */}
@@ -19,36 +22,40 @@ export default function QuestionListingComponent() {
             </svg>
           </div>
           <div>
-            <h1 className={styles.title}>Array Problems</h1>
-            <p className={styles.subtitle}>Master array manipulation, sorting, searching, and two-pointer techniques</p>
+            <h1 className={styles.title}>{data?.category?.name} Problems</h1>
+            <p className={styles.subtitle}>{data?.category?.description}</p>
           </div>
         </div>
-        <div className={styles.actions}>
+        {/* <div className={styles.actions}>
           <button className={styles.button}>Filter</button>
           <button className={styles.button}>Sort</button>
-        </div>
+        </div> */}
       </div>
 
       {/* Tags */}
-      <div className={styles.tags}>
+      {/* <div className={styles.tags}>
         {['All', 'Two Pointers', 'Sliding Window', 'Binary Search', 'Sorting', 'Prefix Sum', 'Kadane\'s Algorithm', 'Matrix'].map(tag => (
           <span key={tag} className={styles.tag}>{tag}</span>
         ))}
-      </div>
+      </div> */}
 
       {/* Search Bar */}
-      <div className={styles.searchWrapper}>
+      {/* <div className={styles.searchWrapper}>
         <input type="text" placeholder="Search array problems..." className={styles.searchInput} />
-      </div>
+      </div> */}
 
       {/* Table */}
       <div className={styles.table}>
         <div className={styles.tableHeader}>
-          <div>#</div><div>Title</div><div>Difficulty</div><div>Acceptance</div><div>Companies</div>
+          <div>#</div><div>Title</div><div>Difficulty</div><div>Solution</div>
         </div>
         {/* Dummy rows, replace with .map() */}
-        <div className={styles.tableRow}>
-          <div>1</div><div>Two Sum</div><div>Easy</div><div>48.2%</div><div>G, A, M</div>
+        <div >
+          {data.data.length !== 0 ? data.data.map((problem, index) => (
+            <div className={styles.tableRow} key={index}>
+              <div>{index + 1}</div><div>{problem?.statement}</div><div>{problem?.difficulty}</div><div><a href={"/questions/" + problem?.slug}>Solve</a></div>
+            </div>
+          )) : <div className={styles.noData}>No problems found.</div>}
         </div>
       </div>
     </main>

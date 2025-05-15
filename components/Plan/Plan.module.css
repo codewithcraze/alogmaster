@@ -1,5 +1,7 @@
 .plan{
     margin-top: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .flex{
@@ -19,7 +21,7 @@
 }
 .dflex {
     display: flex;
-    max-width: 1400px;
+    max-width: 1200px;
     gap: 15px;
     margin: 0 auto;
     flex-wrap: wrap;

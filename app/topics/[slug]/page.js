@@ -8,15 +8,15 @@ const cache = new Map();
 
 export async function getTopicData(slug) {
 
-  if (cache.has(slug)) {
-    return cache.get(slug);
-  }
+  // if (cache.has(slug)) {
+  //   return cache.get(slug);
+  // }
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dsa/category/${slug}`, {
     next: { revalidate: 0 },
   });
 
   const json = await res.json();
-  cache.set(slug, json);
+  // cache.set(slug, json);
   return json;
 }
 
@@ -39,7 +39,7 @@ export default async function Page({ params }) {
     <Suspense fallback={<div>Loading...</div>}>
       <Notification notice={"This is Notice"} />
       <Header />
-      <QuestionListingComponent />
+      <QuestionListingComponent data={data} />
       <Footer />
     </Suspense>
   );
